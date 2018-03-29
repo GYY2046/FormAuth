@@ -1,0 +1,46 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="row" style="margin-top:30px;">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="well col-md-10">
+                    <h3>用户登录</h3>
+                    <div class="input-group input-group-md">
+                        <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "用户名" })
+                        @Html.ValidationMessageFor(m => m.Name)
+                    </div>
+                    <div class="input-group input-group-md">
+                        <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.TextBoxFor(m => m.Pwd, new { @class = "form-control", placeholder = "密码" })
+                        @Html.ValidationMessageFor(m => m.Pwd)
+                    </div>
+                    <div class="input-group input-group-md">
+                        @Html.ValidationMessage("Error")
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">
+                        登录
+                    </button>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+        </div>
+    }
+    </body>
+</html>

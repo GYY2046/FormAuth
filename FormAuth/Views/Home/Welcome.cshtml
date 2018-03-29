@@ -1,0 +1,15 @@
+﻿@using System.Web.Script.Serialization;
+@using FormAuth.Models;
+@using System.Collections.Generic;
+@using System.Linq;
+@{
+    ViewBag.Title = "Welcome";
+}
+
+@{
+    var ticket = (Request.RequestContext.HttpContext.User.Identity as FormsIdentity).Ticket;
+    var userData = (new JavaScriptSerializer()).Deserialize<Role>(ticket.UserData);
+    
+}
+
+

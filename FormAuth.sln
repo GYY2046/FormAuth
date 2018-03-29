@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAuth", "FormAuth\FormAuth.csproj", "{56F6F31A-58DD-4D90-8BE1-5709D329BEE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56F6F31A-58DD-4D90-8BE1-5709D329BEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F6F31A-58DD-4D90-8BE1-5709D329BEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F6F31A-58DD-4D90-8BE1-5709D329BEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F6F31A-58DD-4D90-8BE1-5709D329BEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D43DEAEF-DFE3-429C-A277-D569E5A93C3F}
+	EndGlobalSection
+EndGlobal
