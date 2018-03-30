@@ -50,7 +50,7 @@ namespace FormAuth.DBServer
             string sql = string.Empty;
             int rId = 0;
             string roleName = string.Empty;
-            sql = @"select r.Id rId,r.name rName,p.Id pId,p.CId pCId,p.CName pCName,p.AId pAId,p.AName pANmae 
+            sql = @"select r.Id rId,r.name rName,p.Id pId,p.CId pCId,p.CName pCName,p.ConCnName ConCnName,p.AId pAId,p.AName pAName,p.ActCnName ActCnName 
                     from  [dbo].[role] r  
                         left join[dbo].[RolePermission] rp on r.Id = rp.RoleId
                         left join[dbo].[Permission] p on rp.PerId = p.Id where r.id=@roleId";
@@ -58,7 +58,7 @@ namespace FormAuth.DBServer
             {
                 using (var comm = new SqlCommand(sql, conn))
                 {
-                    comm.Parameters.AddWithValue("@ruleId", roleId);
+                    comm.Parameters.AddWithValue("@roleId", roleId);
                     conn.Open();
                     using (var r = comm.ExecuteReader())
                     {
@@ -71,7 +71,9 @@ namespace FormAuth.DBServer
                                 CId = DBConvert.ToInt(r["pCId"]),
                                 CName = DBConvert.ToString(r["pCName"]),
                                 AId = DBConvert.ToInt(r["pAId"]),
-                                AName = DBConvert.ToString(r["pName"])
+                                AName = DBConvert.ToString(r["pAName"]),
+                                ConCnName = DBConvert.ToString(r["ConCnName"]),
+                                ActCnName = DBConvert.ToString(r["ActCnName"])                                
                             });
                         }
                         role.Id = rId;

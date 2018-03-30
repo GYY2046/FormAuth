@@ -12,6 +12,7 @@ namespace FormAuth.Models
         public string CName { get; set; }
         public int AId { get; set; }
         public string AName { get; set; }
-
+        public string ConCnName { get; set; }
+        public string ActCnName { get; set; }
     }
 }

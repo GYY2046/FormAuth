@@ -1,5 +1,7 @@
 ﻿using FormAuth.DBServer;
 using FormAuth.Models;
+using FormAuth.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,23 +41,21 @@ namespace FormAuth.Controllers
             if (db.CheckUser(user.Name, user.Pwd, out User userModel))
             {
                 var role = db.GetRoleById(userModel.RoleId);
-                
-                var userData = (new JavaScriptSerializer()).Serialize(role);
-                //生成Ticket
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(2,
-                    user.Name,
-                    DateTime.Now,
-                    DateTime.Now.AddDays(1),
-                    true,
-                    userData);
-                //加密
-                string cookieValue = FormsAuthentication.Encrypt(ticket);
-                //设置Cookie
-                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, cookieValue);
-                HttpContext context = System.Web.HttpContext.Current;
-                context.Response.Cookies.Remove(cookie.Name);
-                context.Response.Cookies.Add(cookie);
-                return RedirectToAction("About");
+                var userInfo = new UserInfo();
+                //userInfo.PList = role.PList;
+                userInfo.UserId = role.Id;
+                userInfo.RoleId = role.Id;
+                userInfo.UserName = role.Name;
+                userInfo.PList = role.PList;
+                string perListKey = string.Format("userPermission_{0}", role.Id);
+                if (HttpRuntime.Cache.Get(perListKey) == null)
+                {
+                    HttpRuntime.Cache.Insert(perListKey, role.PList);
+                }                                               
+                var cookie = UserFormsPrincipal<UserInfo>.SingIn(user.Name, userInfo, 100);
+                //Request.Cookies.Add(cookie);
+                //Response.Cookies.Add(cookie);                
+                return View("Welcome");
             }
             else
             {
