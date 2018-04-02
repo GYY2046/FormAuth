@@ -10,7 +10,7 @@ namespace FormAuth.Controllers
     [Description(3, "Good", "Good", 0)]
 
     [RoleAuthorize]
-    public class GoodController : Controller
+    public class GoodController : BaseController
     {
         // GET: Good
         [Description(1, "Index", "首页", 3)]

@@ -1,7 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using FormAuth.Models;
+@using FormAuth.Utils;
+@{
+    //var pList = new List<Permission>();
+    //if (HttpContext.Current != null)
+    //{
+    //    var ticket = (HttpContext.Current.User.Identity as FormsIdentity).Ticket;
+    //    var userData = (HttpContext.Current.User as UserFormsPrincipal<UserInfo>).UserData;
+    //    string perListKey = string.Format("userPermission_{0}", userData.RoleId);
+    //    pList = HttpRuntime.Cache.Get(perListKey) as List<Permission>;
+    //}
+    var pList = ViewBag.PerList as List<Permission>;
+}
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
@@ -21,9 +34,21 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("关于", "About", "Home")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    @if (pList != null)
+                    {
+                        if (pList.FirstOrDefault(m => m.CName.ToLower() == "hello") != null)
+                        {
+                            <li>@Html.ActionLink("你好", "Index", "Hello")</li>
+                        }
+                        if (pList.FirstOrDefault(m => m.CName.ToLower() == "world") != null)
+                        {
+                            <li>@Html.ActionLink("世界", "Index", "world")</li>
+                        }
+                        if (pList.FirstOrDefault(m => m.CName.ToLower() == "good") != null)
+                        {
+                            <li>@Html.ActionLink("棒棒哒", "Index", "good")</li>
+                        }
+                    }                   
 
                 </ul>
             </div>

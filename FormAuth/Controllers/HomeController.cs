@@ -13,7 +13,7 @@ using System.Web.Security;
 
 namespace FormAuth.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private UserServer db = null;
         public HomeController()
@@ -56,7 +56,7 @@ namespace FormAuth.Controllers
                 var cookie = UserFormsPrincipal<UserInfo>.SingIn(user.Name, userInfo, 100);
                 //Request.Cookies.Add(cookie);
                 //Response.Cookies.Add(cookie);                
-                return View("Welcome");
+                return RedirectToAction("Welcome");
             }
             else
             {

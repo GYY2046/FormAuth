@@ -9,7 +9,7 @@ namespace FormAuth.Controllers
 {
     [Description(2, "World","Wrold", 0)]
     [RoleAuthorize]
-    public class WorldController : Controller
+    public class WorldController : BaseController
     {
         [Description(1, "Index","首页", 2)]
         // GET: World

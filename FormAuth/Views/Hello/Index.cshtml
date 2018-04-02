@@ -1,7 +1,20 @@
-﻿
+﻿@using FormAuth.Models;
 @{
     ViewBag.Title = "Index";
+    var perList = ViewBag.PerList as List<Permission>;
 }
 
-<h2>Hello->Index</h2>
 
+<h2>Hello->Index</h2>
+<div>
+    <ul >
+        @if (perList != null)
+        {
+            var helloList = perList.Where(m => m.CName.ToLower() == "hello");
+            foreach (var item in helloList)
+            {
+                @Html.ActionLink(item.ActCnName,item.AName)
+            }
+        }
+    </ul>
+</div>

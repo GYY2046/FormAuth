@@ -9,7 +9,7 @@ namespace FormAuth.Controllers
 {
     [Description(1, "Hello","Hello",0)]
     [RoleAuthorize]
-    public class HelloController : Controller
+    public class HelloController : BaseController
     {
         // GET: Hello
         [Description(1, "Index","首页",1)]
