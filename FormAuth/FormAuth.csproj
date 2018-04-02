@@ -145,6 +145,7 @@
     <Compile Include="Controllers\GoodController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\WorldController.cs" />
     <Compile Include="DBServer\DBService.cs" />
     <Compile Include="DBServer\UserServer.cs" />
@@ -156,7 +157,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DBConvert.cs" />
+    <Compile Include="Utils\DescriptionAttribute.cs" />
     <Compile Include="Utils\RoleAuthorizeAttribute.cs" />
+    <Compile Include="Utils\SystemMenuInfo.cs" />
     <Compile Include="Utils\UserFormsPrincipal.cs" />
     <Compile Include="Utils\UserInfo.cs" />
   </ItemGroup>
@@ -210,6 +213,7 @@
     <Content Include="Views\Good\Delete.cshtml" />
     <Content Include="Views\Good\Index.cshtml" />
     <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
