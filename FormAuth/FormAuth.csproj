@@ -163,6 +163,7 @@
     <Compile Include="Utils\SystemMenuInfo.cs" />
     <Compile Include="Utils\UserFormsPrincipal.cs" />
     <Compile Include="Utils\UserInfo.cs" />
+    <Compile Include="ViewsModel\RolePermissionIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -184,6 +185,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Menu\Index.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

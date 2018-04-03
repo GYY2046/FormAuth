@@ -14,7 +14,7 @@ namespace FormAuth.Controllers
         public BaseController()
         {
             var pList = new List<Permission>();
-            if (System.Web.HttpContext.Current != null)
+            if (System.Web.HttpContext.Current != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 var ticket = (System.Web.HttpContext.Current.User.Identity as FormsIdentity).Ticket;
                 var userData = (System.Web.HttpContext.Current.User as UserFormsPrincipal<UserInfo>).UserData;

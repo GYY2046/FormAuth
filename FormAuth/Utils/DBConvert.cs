@@ -9,14 +9,14 @@ namespace FormAuth.Utils
     {
         public static int ToInt(object o)
         {
-            if (o == null)
+            if (o == DBNull.Value)
                 return -1;
             else
                 return (int)o;
         }
         public static string ToString(object o)
         {
-            if (o == null)
+            if (o == DBNull.Value)
                 return string.Empty;
             else
                 return (string)o;

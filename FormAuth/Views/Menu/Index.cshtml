@@ -1,12 +1,19 @@
-﻿@model IList<FormAuth.Models.Permission>
+﻿@model FormAuth.ViewsModel.RolePermissionIndex
 @{
     ViewBag.Title = "Index";
 }
 
+<select id="roleList" class="selectpicker">
+    @foreach (var item in Model.RoleList)
+    {
+        <option value="@item.Id">@item.CnName</option>
+    }
+</select>
 <div>
     <table class="table">
         <thead>
             <tr>
+                <th><input type="checkbox" id="CheckAll"/></th>
                 <th>ID</th>
                 <th>ControllerId</th>
                 <th>ControllerName</th>
@@ -14,12 +21,13 @@
                 <th>ActionId</th>
                 <th>ActionName</th>
                 <th>ActionCnName</th>
-            </tr>            
+            </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.PerList)
             {
                 <tr>
+                    <td><input type="checkbox" class="checkItem" /></td>
                     <td>@item.Id</td>
                     <td>@item.CId</td>
                     <td>@item.CName</td>
@@ -32,3 +40,5 @@
         </tbody>
     </table>
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Menu/Index.js"></script>
