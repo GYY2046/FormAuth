@@ -1,14 +1,6 @@
 ﻿@using FormAuth.Models;
 @using FormAuth.Utils;
 @{
-    //var pList = new List<Permission>();
-    //if (HttpContext.Current != null)
-    //{
-    //    var ticket = (HttpContext.Current.User.Identity as FormsIdentity).Ticket;
-    //    var userData = (HttpContext.Current.User as UserFormsPrincipal<UserInfo>).UserData;
-    //    string perListKey = string.Format("userPermission_{0}", userData.RoleId);
-    //    pList = HttpRuntime.Cache.Get(perListKey) as List<Permission>;
-    //}
     var pList = ViewBag.PerList as List<Permission>;
 }
 <!DOCTYPE html>
@@ -30,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("权限管理系统", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("大思无疆", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

@@ -43,7 +43,6 @@ namespace FormAuth.Controllers
             {
                 var role = db.GetRoleById(userModel.RoleId);
                 var userInfo = new UserInfo();
-                //userInfo.PList = role.PList;
                 userInfo.UserId = role.Id;
                 userInfo.RoleId = role.Id;
                 userInfo.UserName = role.Name;
@@ -53,9 +52,7 @@ namespace FormAuth.Controllers
                 {
                     HttpRuntime.Cache.Insert(perListKey, role.PList);
                 }                                               
-                var cookie = UserFormsPrincipal<UserInfo>.SingIn(user.Name, userInfo, 100);
-                //Request.Cookies.Add(cookie);
-                //Response.Cookies.Add(cookie);                
+                var cookie = UserFormsPrincipal<UserInfo>.SingIn(user.Name, userInfo, 100);             
                 return RedirectToAction("Welcome");
             }
             else

@@ -15,9 +15,6 @@ namespace FormAuth.Utils
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            //UserFormsPrincipal<UserInfo>.TrySetUserInfo(filterContext.RequestContext.HttpContext)
-            //var dd = (filterContext.RequestContext.HttpContext.User.Identity as FormsIdentity).Ticket; 
-            var userData1 = filterContext.RequestContext.HttpContext.User as UserInfo;
             var isAuth = false;
             if (!filterContext.RequestContext.HttpContext.Request.IsAuthenticated)
             {
